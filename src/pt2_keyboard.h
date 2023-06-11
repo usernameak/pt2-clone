@@ -1,6 +1,10 @@
 #pragma once
 
+#ifdef __ANDROID__
+#include <SDL.h>
+#else
 #include <SDL2/SDL.h>
+#endif
 #ifdef _WIN32
 #include <windows.h>
 #endif

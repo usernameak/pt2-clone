@@ -8,7 +8,11 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <math.h>
+#ifdef __ANDROID__
+#include <SDL.h>
+#else
 #include <SDL2/SDL.h>
+#endif
 #ifdef _WIN32
 #include <io.h>
 #else

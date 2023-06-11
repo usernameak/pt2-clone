@@ -2034,6 +2034,10 @@ bool setupVideo(void)
 	if (videoDriver != NULL && (strcmp("KMSDRM", videoDriver) == 0 || strcmp("wayland", videoDriver) == 0))
 		video.useDesktopMouseCoords = false;
 
+#ifdef __ANDROID__
+	video.useDesktopMouseCoords = false;
+#endif
+
 	updateRenderSizeVars();
 	updateMouseScaling();
 

@@ -264,12 +264,14 @@ static bool loadProTrackerDotIni(FILE *f)
 			else if (!_strnicmp(&configLine[16], "FALSE", 5)) config.autoCloseDiskOp = false;
 		}
 
+#ifndef __ANDROID__
 		// FULLSCREEN
 		else if (!_strnicmp(configLine, "FULLSCREEN=", 11))
 		{
 			     if (!_strnicmp(&configLine[11], "TRUE",  4)) config.startInFullscreen = true;
 			else if (!_strnicmp(&configLine[11], "FALSE", 5)) config.startInFullscreen = false;
 		}
+#endif
 
 		// PIXELFILTER
 		else if (!_strnicmp(configLine, "PIXELFILTER=", 12))

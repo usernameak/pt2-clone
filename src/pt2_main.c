@@ -334,6 +334,10 @@ int main(int argc, char *argv[])
 
 	SDL_ShowWindow(video.window);
 
+#ifdef __ANDROID__
+	config.startInFullscreen = true; // windowed does not work correctly on Android
+#endif
+
 	if (config.startInFullscreen)
 		toggleFullscreen();
 

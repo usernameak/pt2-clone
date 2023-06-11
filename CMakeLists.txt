@@ -4,7 +4,12 @@ project(pt2-clone)
 
 option(EXTERNAL_LIBFLAC "use external(system) flac library" OFF)
 
-find_package(SDL2 REQUIRED)
+if(ANDROID)
+	find_package(SDL2 REQUIRED CONFIG)
+else()
+	find_package(SDL2 REQUIRED)
+endif()
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${pt2-clone_SOURCE_DIR}/release/other/")
 
 file(GLOB pt2-clone_SRC
@@ -14,7 +19,11 @@ file(GLOB pt2-clone_SRC
     "${pt2-clone_SOURCE_DIR}/src/gfx/*.c"
 )
 
-add_executable(pt2-clone ${pt2-clone_SRC})
+if(ANDROID)
+	add_library(pt2-clone SHARED ${pt2-clone_SRC})
+else()
+	add_executable(pt2-clone ${pt2-clone_SRC})
+endif()
 
 target_include_directories(pt2-clone SYSTEM
     PRIVATE ${SDL2_INCLUDE_DIRS})

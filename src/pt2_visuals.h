@@ -49,6 +49,7 @@ void updatePosEd(void);
 void updateVisualizer(void);
 void updateEditOp(void);
 void toggleFullscreen(void);
+void updateWindowSize(void);
 void videoClose(void);
 void displayMainScreen(void);
 void renderPosEdScreen(void);
